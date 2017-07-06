@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image } from 'react-native';
+import {View, Text, Image, TouchableOpacity } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 
@@ -12,7 +12,8 @@ const AlbumDetail = ({ album }) => {
     thumbnailStyle,
     albumArt,
     thumnailContainerStyle,
-    titleStyle
+    titleStyle,
+    purchaseBtn
   } = styles;
   
   return (
@@ -33,6 +34,9 @@ const AlbumDetail = ({ album }) => {
         <Image
         style={albumArt}
         source={{uri: image}}/>
+      </CardSection>
+      <CardSection >
+        <TouchableOpacity onPress={(e)=>console.log(e)} style={purchaseBtn}><Text>Purchase</Text></TouchableOpacity>
       </CardSection>
     </Card>
   );
@@ -61,6 +65,14 @@ const styles = {
   },
   titleStyle: {
     fontSize: 18
+  },
+  purchaseBtn: {
+    width: 200,
+    height: 60,
+    backgroundColor: 'lightseagreen',
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 }
 export default AlbumDetail;
