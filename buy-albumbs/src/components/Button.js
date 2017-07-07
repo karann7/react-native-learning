@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
-const Button = (props)=> {
+const Button = ({ onPress, children })=> {
   let { textStyle, touchArea } = styles;
   
   return (
-    <TouchableOpacity onPress={props.onPress} style={touchArea}>
+    <TouchableOpacity onPress={onPress} style={touchArea}>
     <Text style={textStyle}>
-      {props.buttonText}
+      {children}
     </Text>
     </TouchableOpacity>
   );
 };
+// Prop types are a great way to verify what gets passed down the props
 Button.propTypes = {
   onPress: PropTypes.func.isRequired,
-  buttonText: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired
 }
 const styles = {
   touchArea: {

@@ -11,7 +11,7 @@ class AlbumbList extends Component {
     this.renderAlbums = this.renderAlbums.bind(this);
   }
   componentWillMount() {
-    fetch('https://rallycoding.herokuapp.com/api/music_albums')
+    fetch('https://karann7.github.io/albumbs.json')
       .then(response => response.json())
       .then(data => this.setState({ albums: data }));
   }
