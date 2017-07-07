@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity } from 'react-native';
+import {View, Text, Image, } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 const AlbumDetail = ({ album }) => {
   // further destructring the album below
@@ -36,7 +37,7 @@ const AlbumDetail = ({ album }) => {
         source={{uri: image}}/>
       </CardSection>
       <CardSection >
-        <TouchableOpacity onPress={(e)=>console.log(e)} style={purchaseBtn}><Text>Purchase</Text></TouchableOpacity>
+        <Button />
       </CardSection>
     </Card>
   );
@@ -67,12 +68,7 @@ const styles = {
     fontSize: 18
   },
   purchaseBtn: {
-    width: 200,
-    height: 60,
-    backgroundColor: 'lightseagreen',
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
+    
   }
 }
 export default AlbumDetail;
