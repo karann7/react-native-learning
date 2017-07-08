@@ -64,7 +64,7 @@ const styles = {
   albumArt: {
     flex: 1,
     width: null,
-    height: 300
+    height: 400
   },
   titleStyle: {
     fontSize: 18
