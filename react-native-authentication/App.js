@@ -2,19 +2,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Header } from './src/components/common';
 import firebase from 'firebase';
+import { firebase_config } from './config/config.js'
 
 export default class App extends Component {
   componentWillMount(){
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAIR6i2ChBKvzWF6pwvuocU0c9FfxW_D2M",
-    authDomain: "rn-auth-97b27.firebaseapp.com",
-    databaseURL: "https://rn-auth-97b27.firebaseio.com",
-    projectId: "rn-auth-97b27",
-    storageBucket: "rn-auth-97b27.appspot.com",
-    messagingSenderId: "1071721524183"
-  };
-  firebase.initializeApp(config);
+  // Initialize Firebase for more security the .js should be a .json
+  // and the file should not be uploaded to github
+  firebase.initializeApp(firebase_config);
   }
   render() {
     return (
