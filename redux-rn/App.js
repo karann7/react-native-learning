@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Header } from './src/components/common/Header';
 import reducers from './src/reducers';
-import LibraryList from './src/components/LibraryList';
+import LibraryList from './src/containers/LibraryList';
 
 export default class App extends Component {
   render() {
     let { container } = styles; 
     return (
       <Provider store={ createStore(reducers) }>
-        <View>
+        <View style={container}>
           <Header> React - Redux</Header>
         <LibraryList />
         </View>
@@ -24,8 +24,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingBottom: 10
   },
 });
