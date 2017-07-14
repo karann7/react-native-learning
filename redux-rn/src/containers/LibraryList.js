@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { ScrollView, Text, StyleSheet, ListView } from 'react-native';
 import { connect } from 'react-redux';
-import { ListItem } from '../components/ListItem';
+import { ListItem } from './ListItem';
 
 class LibraryList extends Component {
   componentWillMount() {
