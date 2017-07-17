@@ -1,17 +1,22 @@
 // Karan Singh
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet, TouchableWithoutFeedback, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection } from '../components/common';
 import * as actions from '../actions';
 
 class ListItem extends Component {
-  showDescription(id){
-    if(this.props.selectedLibraryId === id){
+  componentWillUpdate(){
+    LayoutAnimation.easeInEaseOut();
+  }
+  showDescription(){
+    let { library: { description }, expanded } = this.props;
+    let { descriptionStyle } = styles;
+    if(expanded){
       return (
         <CardSection>
-        <Text>{this.props.library.description}</Text>
-      </CardSection>
+        <Text style={descriptionStyle}>{description}</Text>
+        </CardSection>
       );
     }
   }
@@ -39,9 +44,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingLeft: 15
   },
+  descriptionStyle: {
+    textAlign: 'center',
+    color: 'red'
+  }
 });
 
-const mapStateToProps = state => {
-  return { selectedLibraryId: state.selectedLibraryId };
+const mapStateToProps = (state, ownProps) => {
+  let expanded = state.selectedLibraryId === ownProps.library.id;
+  return { expanded };
 };
 export default connect(mapStateToProps, actions)(ListItem);
