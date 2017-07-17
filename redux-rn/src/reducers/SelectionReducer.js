@@ -1,3 +1,3 @@
-export default () => {
+export default (id) => {
   return null;
 };

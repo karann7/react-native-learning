@@ -1,20 +1,25 @@
 // Karan Singh
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import {  connect } from 'react-redux';
+import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { connect } from 'react-redux';
 import { Card, CardSection } from '../components/common';
 import * as actions from '../actions';
 
 class ListItem extends Component {
   render() {
     let { titleStyle } = styles;
-    console.log(this.props);
+    let { library: { id, title } } = this.props;
     return (
-      <Card  key={this.props.library}>
-        <CardSection>
-          <Text style={titleStyle}>{this.props.library.title}</Text>
-        </CardSection>
-      </Card>
+      <TouchableWithoutFeedback
+        onPress={()=>this.props.selectLibrary(id)}>
+        <View>
+          <Card key={id}>
+            <CardSection>
+              <Text style={titleStyle}>{title}</Text>
+            </CardSection>
+          </Card>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
